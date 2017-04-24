@@ -10,9 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 public class HealthBar extends ProgressBar {
-	
+
 	public HealthBar(int width, int height) {
-		super(0f, 1f, 0.01f, false, new ProgressBarStyle(getColoredDrawable(width, height, Color.RED), getColoredDrawable(0, height, Color.GREEN)));
+		super(0f, 1f, 0.01f, false, new ProgressBarStyle());
+		getStyle().background = getColoredDrawable(width, height, Color.RED);
+		getStyle().knob = getColoredDrawable(0, height, Color.GREEN);
 		getStyle().knobBefore = getColoredDrawable(width, height, Color.GREEN);
 		
 		setWidth(width);
