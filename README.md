@@ -1,5 +1,7 @@
 # Examples of the LibGDX progress bar implementations
 
+![LibGDX Progress Bar Examples](https://github.com/serhiy/libgdx-process-bar-example/blob/master/progress-bars.png)
+
 To run the application make sure you have Gradle plug-in integrated with your Eclipse (sorry I do not provide instructions to other IDEs) and you perform the following steps:
 1. Click on "Run" menu
 2. Select "Run configurations..." menu item
