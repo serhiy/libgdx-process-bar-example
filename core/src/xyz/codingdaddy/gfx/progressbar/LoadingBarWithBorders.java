@@ -1,17 +1,20 @@
-package xyz.codingdaddy;
+package xyz.codingdaddy.gfx.progressbar;
+
+import xyz.codingdaddy.util.Utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
+/**
+ * Progress bar which reassembles the behaviour of the loading bar (with left and right borders).
+ * 
+ * @author serhiy
+ */
 public class LoadingBarWithBorders extends ProgressBar {
 
 	private TextureRegion leftBorder;
@@ -22,7 +25,7 @@ public class LoadingBarWithBorders extends ProgressBar {
 		
 		TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("progress-bars.pack"));
 		getStyle().background = new TextureRegionDrawable(textureAtlas.findRegion("loading-bar-2-background"));
-		getStyle().knob = getColoredDrawable(0, height, Color.GREEN);
+		getStyle().knob = Utils.getColoredDrawable(0, height, Color.GREEN);
 		getStyle().knobBefore = new TextureRegionDrawable(textureAtlas.findRegion("loading-bar-2-knobbefore"));
 		
 		leftBorder = textureAtlas.findRegion("loading-bar-2-left");
@@ -31,31 +34,26 @@ public class LoadingBarWithBorders extends ProgressBar {
 		setWidth(width);
 		setHeight(height);
 
-		setAnimateDuration(0.25f);
+		setAnimateDuration(5f);
 	}
-	
-	private static Drawable getColoredDrawable(int width, int height, Color color) {
-		Pixmap pixmap = new Pixmap(width, height, Format.RGBA8888);
-		pixmap.setColor(color);
-		pixmap.fill();
-		
-		TextureRegionDrawable drawable = new TextureRegionDrawable(new TextureRegion(new Texture(pixmap)));
-		
-		pixmap.dispose();
-		
-		return drawable;
-	}
-	
+
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		// First draw the left border.
 		batch.draw(leftBorder, getX(), getY());
+		// Save variables to restore their state after drawing
 		float prevX = getX();
 		float prevWidth = getWidth();
+		// Set the variables which are used to draw the background
 		setX(prevX + leftBorder.getRegionWidth());
 		setWidth(prevWidth - leftBorder.getRegionWidth() - rightBorder.getRegionWidth());
+		// Draw the progress bar as it would be without borders
 		super.draw(batch, parentAlpha);
+		// Set the variables to draw the right border
 		setX(getX() + getWidth());
+		// Draw the right border
 		batch.draw(rightBorder, getX(), getY());
+		// Reset the state of the variables so next cycle the drawing is done at correct position
 		setX(prevX);
 		setWidth(prevWidth);
 	}

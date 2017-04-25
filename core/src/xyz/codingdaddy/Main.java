@@ -2,11 +2,19 @@ package xyz.codingdaddy;
 
 import java.util.concurrent.TimeUnit;
 
+import xyz.codingdaddy.gfx.progressbar.HealthBar;
+import xyz.codingdaddy.gfx.progressbar.LoadingBarWithBorders;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+/**
+ * Application starting point.
+ * 
+ * @author serhiy
+ */
 public class Main extends ApplicationAdapter {
 	private Stage stage;
 	private HealthBar healthBar;
@@ -20,12 +28,10 @@ public class Main extends ApplicationAdapter {
 		
 		healthBar = new HealthBar(100, 10);
 		healthBar.setPosition(10, Gdx.graphics.getHeight() - 20);
-		
 		stage.addActor(healthBar);
 		
 		loadingBarWithBorders = new LoadingBarWithBorders(170, 20);
 		loadingBarWithBorders.setPosition(10, Gdx.graphics.getHeight() - 50);
-
 		stage.addActor(loadingBarWithBorders);
 	}
 
