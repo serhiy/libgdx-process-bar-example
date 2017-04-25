@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Main extends ApplicationAdapter {
 	private Stage stage;
 	private HealthBar healthBar;
-	private LoadingBar loadingBar;
+	private LoadingBarWithBorders loadingBarWithBorders;
 	
 	private long lastUpdate = 0L;
 	
@@ -22,6 +22,11 @@ public class Main extends ApplicationAdapter {
 		healthBar.setPosition(10, Gdx.graphics.getHeight() - 20);
 		
 		stage.addActor(healthBar);
+		
+		loadingBarWithBorders = new LoadingBarWithBorders(170, 20);
+		loadingBarWithBorders.setPosition(10, Gdx.graphics.getHeight() - 50);
+
+		stage.addActor(loadingBarWithBorders);
 	}
 
 	@Override
@@ -31,6 +36,7 @@ public class Main extends ApplicationAdapter {
 		
 		if (System.currentTimeMillis() - lastUpdate > TimeUnit.SECONDS.toMillis(5)) {
 			healthBar.setValue(healthBar.getValue() - 0.1f);
+			loadingBarWithBorders.setValue(loadingBarWithBorders.getValue() + 0.1f);
 			lastUpdate = System.currentTimeMillis();
 		}
 		

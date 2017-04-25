@@ -1,0 +1,33 @@
+
+progress-bars.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+loading-bar-2-background
+  rotate: false
+  xy: 1, 1
+  size: 313, 20
+  orig: 313, 20
+  offset: 0, 0
+  index: -1
+loading-bar-2-knobbefore
+  rotate: false
+  xy: 316, 1
+  size: 313, 20
+  orig: 313, 20
+  offset: 0, 0
+  index: -1
+loading-bar-2-left
+  rotate: false
+  xy: 631, 1
+  size: 13, 20
+  orig: 13, 20
+  offset: 0, 0
+  index: -1
+loading-bar-2-right
+  rotate: false
+  xy: 646, 1
+  size: 13, 20
+  orig: 13, 20
+  offset: 0, 0
+  index: -1
