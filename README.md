@@ -17,3 +17,8 @@ The graphical components for the LoadingBarWithBorders are taken from: [http://w
 This tutorial is kindly provided by [Nuclear Pixels Project](www.nuclearpixels.com). Feel free to drop us a message!
 
 If you have a specific request or an idea for adding a new progress bar style contact me through contact form on the project Web-site.
+
+TODO (ideas):
+1. Text progress bar
+2. Circular progress bar
+3. Health/Mana bars
