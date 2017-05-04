@@ -1,4 +1,4 @@
-package xyz.codingdaddy.gfx.progressbar;
+package xyz.codingdaddy.hud.progressbar;
 
 import xyz.codingdaddy.util.Utils;
 

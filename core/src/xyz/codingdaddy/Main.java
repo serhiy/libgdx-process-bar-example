@@ -2,8 +2,8 @@ package xyz.codingdaddy;
 
 import java.util.concurrent.TimeUnit;
 
-import xyz.codingdaddy.gfx.progressbar.HealthBar;
-import xyz.codingdaddy.gfx.progressbar.LoadingBarWithBorders;
+import xyz.codingdaddy.hud.progressbar.HealthBar;
+import xyz.codingdaddy.hud.progressbar.LoadingBarWithBorders;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
- * Application starting point.
+ * Application rendering.
  * 
  * @author serhiy
  */
